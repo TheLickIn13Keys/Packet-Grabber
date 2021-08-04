@@ -11,3 +11,5 @@ Prerequisites:
 
 - Ettercap
 - Driftnet
+
+# FOR EDUCATIONAL USE ONLY!!!!!
