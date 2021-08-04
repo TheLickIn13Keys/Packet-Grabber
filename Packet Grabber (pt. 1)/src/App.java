@@ -67,7 +67,7 @@ public class App {
                         e.printStackTrace();
                     }
                     try {
-                        String[] cmd = {"bash", "-c", "echo " + passwordText.getText() + "| sudo -S screen -d -m "+ networkInterfaceText.getText() +" -i enp10s0"};
+                        String[] cmd = {"bash", "-c", "echo " + passwordText.getText() + "| sudo -S screen -d -m driftnet -i " + networkInterfaceText.getText()};
                         Process pb = Runtime.getRuntime().exec(cmd);
 
                         String line;
