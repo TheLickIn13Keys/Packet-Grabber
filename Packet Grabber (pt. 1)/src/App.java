@@ -39,13 +39,21 @@ public class App {
         authKeyText.setBounds(125, 50, 165, 25);
         panel.add(authKeyText);
 
+        JLabel networkInterface = new JLabel("Network Interface Name (e.g. eth0)");
+        networkInterface.setBounds(10, 80, 250, 25);
+        panel.add(networkInterface);
+
+        JTextField networkInterfaceText = new JTextField();
+        networkInterfaceText.setBounds(265, 80, 165, 25);
+        panel.add(networkInterfaceText);
+
         JButton buttonStart = new JButton("Start Capture");
         buttonStart.setBounds(200, 200, 300, 25);
         buttonStart.addActionListener(actionEvent -> {
             try {
                 if (app.checkToken(authKeyText.getText()) && !(passwordText.getText().equals(""))) {
                     try {
-                        String[] cmd = {"bash", "-c", "echo " + passwordText.getText() + "| sudo -S screen -d -m ettercap -T -S -i enp10s0 -M arp:remote"};
+                        String[] cmd = {"bash", "-c", "echo " + passwordText.getText() + "| sudo -S screen -d -m ettercap -T -S -i "+ networkInterfaceText.getText() +" -M arp:remote"};
                         Process pb = Runtime.getRuntime().exec(cmd);
 
                         String line;
@@ -59,7 +67,7 @@ public class App {
                         e.printStackTrace();
                     }
                     try {
-                        String[] cmd = {"bash", "-c", "echo " + passwordText.getText() + "| sudo -S screen -d -m driftnet -i enp10s0"};
+                        String[] cmd = {"bash", "-c", "echo " + passwordText.getText() + "| sudo -S screen -d -m "+ networkInterfaceText.getText() +" -i enp10s0"};
                         Process pb = Runtime.getRuntime().exec(cmd);
 
                         String line;
