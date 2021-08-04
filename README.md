@@ -5,8 +5,6 @@ When run, the program initiates a man in the middle attack and collects all netw
 
 In order for the program to run, you must get a token from https://the-token-master.glitch.me/
 
-NOTE: You have to specify the network interface you want to use on line 48 of App.js in place of enp10s0, e.g. eth0.
-
 Prerequisites:
 
 - Ettercap
